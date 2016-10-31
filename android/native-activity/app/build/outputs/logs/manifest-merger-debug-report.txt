@@ -1,0 +1,77 @@
+-- Merging decision tree log ---
+manifest
+ADDED from C:\Users\juhovai\Desktop\GraphicsEngine\graphics_engine\android\native-activity\app\src\main\AndroidManifest.xml:3:1-33:12
+	package
+		ADDED from C:\Users\juhovai\Desktop\GraphicsEngine\graphics_engine\android\native-activity\app\src\main\AndroidManifest.xml:4:11-48
+		INJECTED from C:\Users\juhovai\Desktop\GraphicsEngine\graphics_engine\android\native-activity\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\juhovai\Desktop\GraphicsEngine\graphics_engine\android\native-activity\app\src\main\AndroidManifest.xml
+	android:versionName
+		ADDED from C:\Users\juhovai\Desktop\GraphicsEngine\graphics_engine\android\native-activity\app\src\main\AndroidManifest.xml:6:11-36
+		INJECTED from C:\Users\juhovai\Desktop\GraphicsEngine\graphics_engine\android\native-activity\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\juhovai\Desktop\GraphicsEngine\graphics_engine\android\native-activity\app\src\main\AndroidManifest.xml
+	android:versionCode
+		ADDED from C:\Users\juhovai\Desktop\GraphicsEngine\graphics_engine\android\native-activity\app\src\main\AndroidManifest.xml:5:11-34
+		INJECTED from C:\Users\juhovai\Desktop\GraphicsEngine\graphics_engine\android\native-activity\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\juhovai\Desktop\GraphicsEngine\graphics_engine\android\native-activity\app\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from C:\Users\juhovai\Desktop\GraphicsEngine\graphics_engine\android\native-activity\app\src\main\AndroidManifest.xml:3:11-69
+uses-feature#0x00020000
+ADDED from C:\Users\juhovai\Desktop\GraphicsEngine\graphics_engine\android\native-activity\app\src\main\AndroidManifest.xml:8:3-51
+	android:glEsVersion
+		ADDED from C:\Users\juhovai\Desktop\GraphicsEngine\graphics_engine\android\native-activity\app\src\main\AndroidManifest.xml:8:17-49
+application
+ADDED from C:\Users\juhovai\Desktop\GraphicsEngine\graphics_engine\android\native-activity\app\src\main\AndroidManifest.xml:11:3-31:17
+MERGED from [com.android.support:appcompat-v7:23.4.0] C:\Users\juhovai\Desktop\GraphicsEngine\graphics_engine\android\native-activity\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.4.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:animated-vector-drawable:23.4.0] C:\Users\juhovai\Desktop\GraphicsEngine\graphics_engine\android\native-activity\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.4.0\AndroidManifest.xml:7:5-20
+MERGED from [com.android.support:support-vector-drawable:23.4.0] C:\Users\juhovai\Desktop\GraphicsEngine\graphics_engine\android\native-activity\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.4.0\AndroidManifest.xml:7:5-20
+MERGED from [com.android.support:support-v4:23.4.0] C:\Users\juhovai\Desktop\GraphicsEngine\graphics_engine\android\native-activity\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.0.0-alpha7] C:\Users\juhovai\Desktop\GraphicsEngine\graphics_engine\android\native-activity\app\build\intermediates\exploded-aar\com.android.support.constraint\constraint-layout\1.0.0-alpha7\AndroidManifest.xml:9:5-20
+	android:hasCode
+		ADDED from C:\Users\juhovai\Desktop\GraphicsEngine\graphics_engine\android\native-activity\app\src\main\AndroidManifest.xml:16:7-30
+	android:label
+		ADDED from C:\Users\juhovai\Desktop\GraphicsEngine\graphics_engine\android\native-activity\app\src\main\AndroidManifest.xml:15:7-39
+	android:fullBackupContent
+		ADDED from C:\Users\juhovai\Desktop\GraphicsEngine\graphics_engine\android\native-activity\app\src\main\AndroidManifest.xml:13:7-40
+	android:allowBackup
+		ADDED from C:\Users\juhovai\Desktop\GraphicsEngine\graphics_engine\android\native-activity\app\src\main\AndroidManifest.xml:12:7-34
+	android:icon
+		ADDED from C:\Users\juhovai\Desktop\GraphicsEngine\graphics_engine\android\native-activity\app\src\main\AndroidManifest.xml:14:7-41
+activity#android.app.NativeActivity
+ADDED from C:\Users\juhovai\Desktop\GraphicsEngine\graphics_engine\android\native-activity\app\src\main\AndroidManifest.xml:20:5-30:16
+	android:label
+		ADDED from C:\Users\juhovai\Desktop\GraphicsEngine\graphics_engine\android\native-activity\app\src\main\AndroidManifest.xml:21:15-47
+	android:configChanges
+		ADDED from C:\Users\juhovai\Desktop\GraphicsEngine\graphics_engine\android\native-activity\app\src\main\AndroidManifest.xml:22:15-65
+	android:name
+		ADDED from C:\Users\juhovai\Desktop\GraphicsEngine\graphics_engine\android\native-activity\app\src\main\AndroidManifest.xml:20:15-56
+meta-data#android.app.lib_name
+ADDED from C:\Users\juhovai\Desktop\GraphicsEngine\graphics_engine\android\native-activity\app\src\main\AndroidManifest.xml:24:7-25:52
+	android:value
+		ADDED from C:\Users\juhovai\Desktop\GraphicsEngine\graphics_engine\android\native-activity\app\src\main\AndroidManifest.xml:25:18-49
+	android:name
+		ADDED from C:\Users\juhovai\Desktop\GraphicsEngine\graphics_engine\android\native-activity\app\src\main\AndroidManifest.xml:24:18-53
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from C:\Users\juhovai\Desktop\GraphicsEngine\graphics_engine\android\native-activity\app\src\main\AndroidManifest.xml:26:7-29:23
+action#android.intent.action.MAIN
+ADDED from C:\Users\juhovai\Desktop\GraphicsEngine\graphics_engine\android\native-activity\app\src\main\AndroidManifest.xml:27:9-61
+	android:name
+		ADDED from C:\Users\juhovai\Desktop\GraphicsEngine\graphics_engine\android\native-activity\app\src\main\AndroidManifest.xml:27:17-58
+category#android.intent.category.LAUNCHER
+ADDED from C:\Users\juhovai\Desktop\GraphicsEngine\graphics_engine\android\native-activity\app\src\main\AndroidManifest.xml:28:9-69
+	android:name
+		ADDED from C:\Users\juhovai\Desktop\GraphicsEngine\graphics_engine\android\native-activity\app\src\main\AndroidManifest.xml:28:19-66
+uses-sdk
+INJECTED from C:\Users\juhovai\Desktop\GraphicsEngine\graphics_engine\android\native-activity\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+MERGED from [com.android.support:appcompat-v7:23.4.0] C:\Users\juhovai\Desktop\GraphicsEngine\graphics_engine\android\native-activity\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.4.0\AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:animated-vector-drawable:23.4.0] C:\Users\juhovai\Desktop\GraphicsEngine\graphics_engine\android\native-activity\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.4.0\AndroidManifest.xml:5:5-44
+MERGED from [com.android.support:support-vector-drawable:23.4.0] C:\Users\juhovai\Desktop\GraphicsEngine\graphics_engine\android\native-activity\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.4.0\AndroidManifest.xml:5:5-43
+MERGED from [com.android.support:support-v4:23.4.0] C:\Users\juhovai\Desktop\GraphicsEngine\graphics_engine\android\native-activity\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support.constraint:constraint-layout:1.0.0-alpha7] C:\Users\juhovai\Desktop\GraphicsEngine\graphics_engine\android\native-activity\app\build\intermediates\exploded-aar\com.android.support.constraint\constraint-layout\1.0.0-alpha7\AndroidManifest.xml:5:5-7:41
+	tools:overrideLibrary
+		ADDED from [com.android.support:appcompat-v7:23.4.0] C:\Users\juhovai\Desktop\GraphicsEngine\graphics_engine\android\native-activity\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.4.0\AndroidManifest.xml:23:9-75
+	android:targetSdkVersion
+		INJECTED from C:\Users\juhovai\Desktop\GraphicsEngine\graphics_engine\android\native-activity\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\juhovai\Desktop\GraphicsEngine\graphics_engine\android\native-activity\app\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from C:\Users\juhovai\Desktop\GraphicsEngine\graphics_engine\android\native-activity\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\juhovai\Desktop\GraphicsEngine\graphics_engine\android\native-activity\app\src\main\AndroidManifest.xml

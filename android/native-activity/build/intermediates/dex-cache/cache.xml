@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="C:\Users\juhovai\Desktop\GraphicsEngine\graphics_engine\android\native-activity\app\build\intermediates\exploded-aar\com.android.support.constraint\constraint-layout\1.0.0-alpha7\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.2"
+        sha1="541a2ad68dc68aa49795821f8280b7624e6a0c9b">
+        <dex dex="C:\Users\juhovai\Desktop\GraphicsEngine\graphics_engine\android\native-activity\app\build\intermediates\pre-dexed\debug\com.android.support.constraint-constraint-layout-1.0.0-alpha7_f05d708f4e05b8ae093de0cec6ba8e18ac4f9e5a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\juhovai\Desktop\GraphicsEngine\graphics_engine\android\native-activity\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.2"
+        sha1="67bd36ee9340ec7c254108936ad16b24bed160cc">
+        <dex dex="C:\Users\juhovai\Desktop\GraphicsEngine\graphics_engine\android\native-activity\app\build\intermediates\pre-dexed\debug\com.android.support-support-v4-23.4.0_5c8941c12c8a0e955de27a2c1d1088da5cff0423.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\juhovai\Desktop\GraphicsEngine\graphics_engine\android\native-activity\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.4.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.2"
+        sha1="c2c594cace5d83a3227b2b6e658ecbfd586d3ed9">
+        <dex dex="C:\Users\juhovai\Desktop\GraphicsEngine\graphics_engine\android\native-activity\app\build\intermediates\pre-dexed\debug\com.android.support-support-vector-drawable-23.4.0_ed6124effacb63e855c332b927c94861c294647e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\juhovai\Desktop\GraphicsEngine\graphics_engine\android\native-activity\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\jars\libs\internal_impl-23.4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.2"
+        sha1="ea3c07504d2c8f4b13aa17c45c1b68ed9c1c3674">
+        <dex dex="C:\Users\juhovai\Desktop\GraphicsEngine\graphics_engine\android\native-activity\app\build\intermediates\pre-dexed\debug\internal_impl-23.4.0_1c1ff0b37eb3435557b236535097c74c607dd580.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\juhovai\Desktop\GraphicsEngine\graphics_engine\android\native-activity\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.4.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.2"
+        sha1="548f06de403a9409f00554b3ee12a9fdea0e236c">
+        <dex dex="C:\Users\juhovai\Desktop\GraphicsEngine\graphics_engine\android\native-activity\app\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-23.4.0_b4b5ba2758856293feddb1b16e300f612737e4ef.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\juhovai\Desktop\GraphicsEngine\graphics_engine\android\native-activity\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.4.0\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.2"
+        sha1="de4db3785756bfb0915a9f59a9b3f2fea7407be4">
+        <dex dex="C:\Users\juhovai\Desktop\GraphicsEngine\graphics_engine\android\native-activity\app\build\intermediates\pre-dexed\debug\com.android.support-animated-vector-drawable-23.4.0_0101691226c597a349abef965e05baec26c709e8.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\juhovai\AppData\Local\Android\Sdk\extras\m2repository\com\android\support\constraint\constraint-layout-solver\1.0.0-alpha7\constraint-layout-solver-1.0.0-alpha7.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.2"
+        sha1="439eeb5ffd54cbd18db0a6aea471e8356f19fc36">
+        <dex dex="C:\Users\juhovai\Desktop\GraphicsEngine\graphics_engine\android\native-activity\app\build\intermediates\pre-dexed\debug\constraint-layout-solver-1.0.0-alpha7_fa20fff6e386b0bec1feaf8f9782fdff89a9a08f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\juhovai\AppData\Local\Android\Sdk\extras\android\m2repository\com\android\support\support-annotations\23.4.0\support-annotations-23.4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.2"
+        sha1="ffbe55fdb2bb456b1485831706a9eac3300bb6b8">
+        <dex dex="C:\Users\juhovai\Desktop\GraphicsEngine\graphics_engine\android\native-activity\app\build\intermediates\pre-dexed\debug\support-annotations-23.4.0_3083373039570c0f381c938ff33ca47eeffd31ef.jar" />
+    </item>
+
+</items>
