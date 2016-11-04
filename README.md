@@ -6,4 +6,4 @@ Donut steel
 
 "Yes" - Chiki 2016
 
-Copyright HoboRobo crew (and Markus)
+Copyright HoboRobo crew (not really)
