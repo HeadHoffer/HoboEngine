@@ -1,0 +1,1 @@
+add these .dll files to both SoundTest Debug folder and Engine Debug folder
