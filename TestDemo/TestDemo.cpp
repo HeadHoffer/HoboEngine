@@ -5,6 +5,8 @@
 #include <OpenGLES2GraphicsSystem.h>
 #include <Application.h>
 #include <ElapsedTimer.h>
+#include <PNGFile.h>
+
 
 int _tmain(int argc, _TCHAR* argv[])
 {
@@ -24,6 +26,8 @@ int _tmain(int argc, _TCHAR* argv[])
 		new engine::Application();
 	window->setApplication(application);
 
+	
+
 	engine::ElapsedTimer frameTimer;
 	frameTimer.reset();
 
@@ -32,6 +36,7 @@ int _tmain(int argc, _TCHAR* argv[])
 		float deltaTime = frameTimer.getTime();
 		frameTimer.reset();
 		application->update(deltaTime);
+		
 	}
 
 	printf("Closing...\n");
