@@ -31,6 +31,30 @@ namespace engine
 			"}                                                \n";
 
 		m_shader.push_back(new Shader(texturedVertexShader, texturedFragmentShader));
+		m_shader.push_back(new Shader(texturedVertexShader, texturedFragmentShader));
+
+		//4x4 image, 3 bytes per pixel
+		GLubyte pixels[16 * 3] =
+		{
+			255, 255, 255,
+			0, 0, 255,
+			0, 0, 255,
+			255, 255, 255,
+			0, 0, 255,
+			0, 0, 255,
+			0, 0, 255,
+			0, 0, 255,
+			0, 0, 255,
+			0, 0, 255,
+			0, 0, 255,
+			0, 0, 255,
+			255, 255, 255,
+			0, 0, 255,
+			0, 0, 255,
+			255, 255, 255,
+		};
+
+		m_texture.push_back(new Texture(4, 4, 3, pixels));
 
 		//text shader
 		char textVertexShader[] =
@@ -54,29 +78,6 @@ namespace engine
 			"}";
 
 		m_shader.push_back(new Shader(textVertexShader, textFragmentShader));
-
-		//4x4 image, 3 bytes per pixel
-		GLubyte pixels[16 * 3] =
-		{
-			255, 255, 255,
-			  0,   0, 255,		
-			  0,   0, 255,		
-			255, 255, 255,
-			  0,   0, 255,		
-			  0,   0, 255,		
-			  0,   0, 255,		
-			  0,   0, 255,		
-			  0,   0, 255,		
-			  0,   0, 255,		
-			  0,   0, 255,		
-			  0,   0, 255,		
-			255, 255, 255,
-			  0,   0, 255,		
-			  0,   0, 255,		
-			255, 255, 255,
-		};
-	
-		m_texture.push_back(new Texture(4, 4, 3, pixels));
 
 		////2x2 image, 3 bytes per pixel
 		//GLubyte pixels2[4 * 3] =
@@ -133,18 +134,6 @@ namespace engine
 			-1.0f * sini1, -1.0f * cosi1, 0.0f,
 		};
 
-		////smaller square vertices and rotating
-		//float square2[] =
-		//{
-		//	-0.5f * sini2, -0.5f * cosi2, 0.0f,
-		//	 0.5f * cosi2, -0.5f * sini2, 0.0f,
-		//	 0.5f * sini2,  0.5f * cosi2, 0.0f,
-
-		//	 0.5f * sini2,  0.5f * cosi2, 0.0f,
-		//	-0.5f * cosi2,  0.5f * sini2, 0.0f,
-		//	-0.5f * sini2, -0.5f * cosi2, 0.0f,
-		//};
-
 		//texture cordinates
 		float textCords[] = 
 		{
@@ -156,14 +145,10 @@ namespace engine
 			0, 0,
 		};
 
-
 		//drawing the squares
 		graphicsSystem->drawTriangle(m_shader[0], m_texture[0], textCords, square1, 6);
 
-		//graphicsSystem->initText();
-		graphicsSystem->drawText(m_shader[1], "helo wurld", -1, 0.825, sx, sy);
-	//	graphicsSystem->drawText(m_shader[1], "paskda", -1, 0.5, sx, sy);
-	//	graphicsSystem->drawText(m_shader[1], "wetwet", -1, 0.25, sx, sy);
+		graphicsSystem->drawText(m_shader[2], "helo wurld", -1, 0.825, sx, sy);
 
 		graphicsSystem->swapBuffers();	
 	}

@@ -13,6 +13,7 @@ namespace engine
 		~Shader();
 
 		void UseShader();
+		
 		GLuint getProgram();
 		GLuint getUniformLocation(const char* const uniformName);
 

@@ -138,20 +138,17 @@ namespace engine
 		
 		//Set the sampler texture unit to 0
 		glUniform1i(shader->getUniformLocation("texture"), 0);
-
 		glDrawArrays(GL_TRIANGLES, 0, numVertices);
-
-
 	}
 
-	int OpenGLES2GraphicsSystem::initText(const char *fontFilename)
+	int OpenGLES2GraphicsSystem::initText(const char* fontFilename)
 	{
 		m_fontFilename = fontFilename;
 
 		if (FT_Init_FreeType(&m_ft))
 		{
 			fprintf(stderr, "Could not init freetype library\n");
-			return 1;
+			return 0;
 		}
 
 		//load a font
@@ -159,7 +156,7 @@ namespace engine
 		if (FT_New_Face(m_ft, m_fontFilename, 0, &m_face))
 		{
 			fprintf(stderr, "Could not open font %s\n", m_fontFilename);
-			return 1;
+			return 0;
 		}
 		else
 			printf("Font loaded!\n");
@@ -181,13 +178,11 @@ namespace engine
 		//create the vertex buffer object
 		glGenBuffers(1, &m_vbo);
 
-		return 0;
-
-	
+		return 1;
 	}
 
 	//text 
-	void OpenGLES2GraphicsSystem::drawText(Shader* shader, const char *text, float x, float y, float sx, float sy)
+	void OpenGLES2GraphicsSystem::drawText(Shader* shader, const char* text, float x, float y, float sx, float sy)
 	{
 		shader->UseShader();
 
@@ -224,6 +219,13 @@ namespace engine
 		glBindBuffer(GL_ARRAY_BUFFER, m_vbo);
 		glVertexAttribPointer(attribute_coord, 4, GL_FLOAT, GL_FALSE, 0, 0);
 
+		//font color (r, g, b, alpha)
+		GLfloat color[4] = { 1, 0, 0, 1 };
+
+		//set font size and color (pls scale font like this, not with sx, sy)
+		FT_Set_Pixel_Sizes(m_face, 0, 48);
+		glUniform4fv(uniform_color, 1, color);
+
 		//loop through all characters
 		for (p = text; *p; p++)
 		{
@@ -257,18 +259,13 @@ namespace engine
 			y += (g->advance.y >> 6) * sy;
 		}
 
+
+
 		glDisableVertexAttribArray(attribute_coord);
 		glDeleteTextures(1, &tex);
 
-		//font color (r, g, b, alpha)
-		GLfloat color[4] = { 1, 0, 0, 1 };
 
-		//set font size and color (pls scale font like this, not with sx, sy)
-		FT_Set_Pixel_Sizes(m_face, 0, 48);
-		glUniform4fv(uniform_color, 1, color);
-	
 	}
-
 
 	void OpenGLES2GraphicsSystem::swapBuffers()
 	{

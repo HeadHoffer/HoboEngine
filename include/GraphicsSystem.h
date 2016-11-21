@@ -15,7 +15,7 @@ namespace engine
 		GraphicsSystem();
 		~GraphicsSystem();
 
-		virtual int initText(const char *fontFilename) = 0;
+		virtual int initText(const char* fontFilename) = 0;
 
 		virtual void clearScreen(float red, float green, float blue) = 0;
 		virtual void drawTriangle(Shader* shader, Texture* texture, float textCoords[], float vertices[], int numVertices) = 0;

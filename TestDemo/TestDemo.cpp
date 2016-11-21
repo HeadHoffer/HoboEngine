@@ -6,8 +6,6 @@
 #include <Application.h>
 #include <ElapsedTimer.h>
 
-#include <Text.h>
-
 #include <PNGFile.h>
 
 
@@ -25,8 +23,6 @@ int _tmain(int argc, _TCHAR* argv[])
 		new engine::OpenGLES2GraphicsSystem(window);
 	window->setGraphicsSystem(graphicsSystem);
 
-
-
 	engine::Ref<engine::Application> app =
 		new engine::Application();
 	window->setApplication(app);
@@ -36,12 +32,6 @@ int _tmain(int argc, _TCHAR* argv[])
 
 
 	//teksti menee applicationiin ja renderöidää sieltä
-
-	//engine::Ref<engine::Text> txt =
-	//	new engine::Text();
-	//txt->initResources();
-
-	
 
 	engine::ElapsedTimer frameTimer;
 	frameTimer.reset();

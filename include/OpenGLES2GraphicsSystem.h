@@ -22,7 +22,7 @@ namespace engine
 		OpenGLES2GraphicsSystem(Window* window);
 		~OpenGLES2GraphicsSystem();
 
-		virtual int initText(const char *fontFilename);
+		virtual int initText(const char* fontFilename);
 
 		virtual void clearScreen(float red, float green, float blue);
 		//virtual void drawTriangle(Shader* shader, float vertices[], int numvertices);
