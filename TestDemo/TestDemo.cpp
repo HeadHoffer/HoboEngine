@@ -5,6 +5,8 @@
 #include <OpenGLES2GraphicsSystem.h>
 #include <Application.h>
 #include <ElapsedTimer.h>
+#include <Text.h>
+
 
 int _tmain(int argc, _TCHAR* argv[])
 {
@@ -14,15 +16,27 @@ int _tmain(int argc, _TCHAR* argv[])
 	printf("Created window (%d, %d)\n", w, h);
 
 	engine::Ref<engine::Win32Window> window =
-		new engine::Win32Window(w, h, L"Title");
+		new engine::Win32Window(w, h, L"wundow");
 
 	engine::Ref<engine::OpenGLES2GraphicsSystem> graphicsSystem =
 		new engine::OpenGLES2GraphicsSystem(window);
 	window->setGraphicsSystem(graphicsSystem);
 
-	engine::Ref<engine::Application> application =
+
+
+	engine::Ref<engine::Application> app =
 		new engine::Application();
-	window->setApplication(application);
+	window->setApplication(app);
+	
+	const char *fontfilename = "comic.ttf";
+	graphicsSystem->initText(fontfilename);
+
+
+	//teksti menee applicationiin ja renderöidää sieltä
+
+	//engine::Ref<engine::Text> txt =
+	//	new engine::Text();
+	//txt->initResources();
 
 	engine::ElapsedTimer frameTimer;
 	frameTimer.reset();
@@ -31,7 +45,8 @@ int _tmain(int argc, _TCHAR* argv[])
 	{
 		float deltaTime = frameTimer.getTime();
 		frameTimer.reset();
-		application->update(deltaTime);
+		
+		app->update(deltaTime);
 	}
 
 	printf("Closing...\n");

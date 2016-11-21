@@ -22,6 +22,7 @@ namespace engine
 		glAttachShader(m_programObject, fragmentShader);
 
 		glBindAttribLocation(m_programObject, 0, "vPosition");
+
 		glLinkProgram(m_programObject);
 
 		GLint linked;
@@ -54,6 +55,11 @@ namespace engine
 	void Shader::UseShader()
 	{
 		glUseProgram(m_programObject);
+	}
+
+	GLuint Shader::getProgram()
+	{
+		return m_programObject;
 	}
 
 	GLuint Shader::getUniformLocation(const char* const uniformName)

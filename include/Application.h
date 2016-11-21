@@ -6,6 +6,7 @@
 #include <vector>
 #include <Shader.h>
 #include <Texture.h>
+#include <Text.h>
 
 namespace engine
 {
@@ -26,6 +27,9 @@ namespace engine
 	private:
 		float m_totalTime;		
 		
+		engine::Ref<engine::Text> txt =
+			new engine::Text();
+
 		std::vector<Ref<Shader>> m_shader;
 		std::vector<Ref<Texture>> m_texture;
 	};

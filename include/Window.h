@@ -8,6 +8,7 @@ namespace engine
 {
 	class Application;
 	class GraphicsSystem;
+	class Text;
 
 	class Window : public Object
 	{
