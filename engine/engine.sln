@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "engine", "engine.vcxproj", 
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TestDemo", "..\TestDemo\TestDemo.vcxproj", "{7087D9C5-1583-4CE4-9D07-AB2836A30CB3}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SoundTest", "..\SoundTest\SoundTest.vcxproj", "{24A0642B-F69A-44C5-9710-9BAC8437A578}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -21,6 +23,10 @@ Global
 		{7087D9C5-1583-4CE4-9D07-AB2836A30CB3}.Debug|Win32.Build.0 = Debug|Win32
 		{7087D9C5-1583-4CE4-9D07-AB2836A30CB3}.Release|Win32.ActiveCfg = Release|Win32
 		{7087D9C5-1583-4CE4-9D07-AB2836A30CB3}.Release|Win32.Build.0 = Release|Win32
+		{24A0642B-F69A-44C5-9710-9BAC8437A578}.Debug|Win32.ActiveCfg = Debug|Win32
+		{24A0642B-F69A-44C5-9710-9BAC8437A578}.Debug|Win32.Build.0 = Debug|Win32
+		{24A0642B-F69A-44C5-9710-9BAC8437A578}.Release|Win32.ActiveCfg = Release|Win32
+		{24A0642B-F69A-44C5-9710-9BAC8437A578}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

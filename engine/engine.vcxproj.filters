@@ -60,10 +60,14 @@
     <ClInclude Include="..\include\win32\Win32Window.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+<<<<<<< HEAD
     <ClInclude Include="..\include\Text.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="..\include\ft2build.h">
+=======
+    <ClInclude Include="..\include\PNGFile.h">
+>>>>>>> e5f22a15dcf74bf6234288ddb9562e298f735c24
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -113,7 +117,11 @@
     <ClCompile Include="..\source\win32\Win32Window.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+<<<<<<< HEAD
     <ClCompile Include="..\source\Text.cpp">
+=======
+    <ClCompile Include="..\source\PNGFile.cpp">
+>>>>>>> e5f22a15dcf74bf6234288ddb9562e298f735c24
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
