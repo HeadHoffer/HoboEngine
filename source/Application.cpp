@@ -146,9 +146,9 @@ namespace engine
 		};
 
 		//drawing the squares
-		graphicsSystem->drawTriangle(m_shader[0], m_texture[0], textCords, square1, 6);
 
-		graphicsSystem->drawText(m_shader[2], "helo wurld", -1, 0.825, sx, sy);
+		graphicsSystem->drawText(m_shader[2], "hello gordon freeman", -1, 0.825, sx, sy);
+		graphicsSystem->drawTriangle(m_shader[0], m_texture[0], textCords, square1, 6);
 
 		graphicsSystem->swapBuffers();	
 	}

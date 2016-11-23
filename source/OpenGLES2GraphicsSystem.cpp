@@ -197,9 +197,9 @@ namespace engine
 
 		//create a texture that will be used to hold one "glyph"
 		GLuint tex;
+		glGenTextures(1, &tex);
 
 		glActiveTexture(GL_TEXTURE0);
-		glGenTextures(1, &tex);
 		glBindTexture(GL_TEXTURE_2D, tex);
 		glUniform1i(uniform_tex, 0);
 
@@ -263,7 +263,6 @@ namespace engine
 
 		glDisableVertexAttribArray(attribute_coord);
 		glDeleteTextures(1, &tex);
-
 
 	}
 
