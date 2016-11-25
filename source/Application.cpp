@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <math.h>
 #include <Text.h>
+#include <PNGFile.h>
 
 namespace engine
 {
