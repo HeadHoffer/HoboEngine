@@ -31,6 +31,9 @@ int _tmain(int argc, _TCHAR* argv[])
 	graphicsSystem->initText(fontfilename);
 
 
+	
+
+
 	//teksti menee applicationiin ja renderöidää sieltä
 
 	engine::ElapsedTimer frameTimer;
