@@ -6,7 +6,8 @@
 #include <GLES2/gl2.h>
 
 #include <initializer_list>
-#include <string>
+
+#define TEXTURE_LOAD_ERROR 0
 
 namespace engine
 {
@@ -139,6 +140,34 @@ namespace engine
 		glDrawArrays(GL_TRIANGLES, 0, numVertices);
 	}
 
+	void OpenGLES2GraphicsSystem::setTexture(PNGFile* png)
+	{
+		int w = 512;
+		int h = 512;
+
+		m_text = png->loadTexture("Illuminati.png", w, h);
+	}
+
+	void OpenGLES2GraphicsSystem::drawPNG(Shader* shader, float textCords[], float vertices[], int numVertices)
+	{
+		shader->UseShader();
+
+		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, vertices);
+		glEnableVertexAttribArray(0);
+
+		//Set texture coordinates
+		glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 0, textCords);
+		glEnableVertexAttribArray(1);
+		
+		//Bind texture
+		glActiveTexture(GL_TEXTURE0);
+		glBindTexture(GL_TEXTURE_2D, m_text);
+		
+		//Set the sampler texture unit to 0
+		glUniform1i(shader->getUniformLocation("texture"), 0);
+		glDrawArrays(GL_TRIANGLES, 0, numVertices);
+	}
+
 	int OpenGLES2GraphicsSystem::initText(const char* fontFilename)
 	{
 		m_fontFilename = fontFilename;
@@ -257,7 +286,6 @@ namespace engine
 			//draw the character on the screen
 			glBufferData(GL_ARRAY_BUFFER, sizeof box, box, GL_DYNAMIC_DRAW);
 			glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
-
 			//advance the cursor to the start of the next character
 			x += (g->advance.x >> 6) * sx;
 			y += (g->advance.y >> 6) * sy;

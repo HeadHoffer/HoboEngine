@@ -12,31 +12,35 @@
 #include <stdlib.h>
 #include <string>
 #include <Ref.h>
+
+
 #define TEXTURE_LOAD_ERROR 0
 
 namespace engine
 {
-	class PNGFile 
+	class PNGFile : public Object
 	{
 	public:
 		PNGFile();
 		~PNGFile();
 
-		/*GLuint loadTexture(const std::string filename, int &width, int &height);*/
+		GLuint loadTexture(const std::string filename, int &width, int &height);
+		GLuint returnTexture();
 
+		//void readPNGFile(char *filename);
+		//void writePNGFile(char *filename);
+		//void processPNGFile();
 
-		void readPNGFile(char *filename);
-		void writePNGFile(char *filename);
-		void processPNGFile();
-
-		int stuffHappnes(int argc, char *argv[]);
+		//int stuffHappnes(int argc, char *argv[]);
 
 	private:
-		int width, height;
-		png_byte color_type;
-		png_byte bit_depth;
-		png_bytep *row_pointers;
-		char * filename = "pngtest.png";
+		//GLuint m_pngTexture;
+
+		//int width, height;
+		//png_byte color_type;
+		//png_byte bit_depth;
+		//png_bytep *row_pointers;
+		//char * filename = "pngtest.png";
 		
 	};
 }

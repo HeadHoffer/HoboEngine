@@ -88,6 +88,7 @@ namespace engine
 		//};
 		//	
 		//m_texture.push_back(new Texture(2, 2, 3, pixels2));
+		
 	}
 
 	Application::~Application()
@@ -132,6 +133,17 @@ namespace engine
 			-1.0f * sini1, -1.0f * cosi1, 0.0f,
 		};
 
+		float square2[] =
+		{
+			-1.0f, -1.0f, 0.0f,
+			1.0f, -1.0f, 0.0f,
+			1.0f, 1.0, 0.0f,
+
+			1.0f, 1.0f, 0.0f,
+			-1.0f, 1.0f, 0.0f,
+			-1.0f, -1.0f, 0.0f,
+		};
+
 		//texture cordinates
 		float textCords[] = 
 		{
@@ -142,9 +154,9 @@ namespace engine
 			1, 0,
 			0, 0,
 		};
-
 		//drawing the square(s)
 		graphicsSystem->drawTriangle(m_shader[0], m_texture[0], textCords, square1, 6);
+		//graphicsSystem->drawPNG(m_shader[1], textCords, square2, 6);
 
 		//drawing the text(s), drawText(shader, text, x, y, sx, sy, r, g, b)
 		graphicsSystem->drawText(m_shader[1], "helo wurld", -1, 0.825, sx, sy, 1, 0 , 0);

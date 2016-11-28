@@ -8,6 +8,8 @@
 #include <EGL/egl.h>
 #include <GLES2/gl2.h>
 
+#include <PNGFile.h>
+
 //freetype headers
 #include <ft2build.h>
 #include FT_FREETYPE_H
@@ -27,15 +29,19 @@ namespace engine
 		virtual void clearScreen(float red, float green, float blue);
 		//virtual void drawTriangle(Shader* shader, float vertices[], int numvertices);
 		virtual void drawTriangle(Shader* shader, Texture* texture, float textCords[], float vertices[], int numVertices);
-
+		virtual void drawPNG(Shader* shader, float textCords[], float vertices[], int numVertices);
 		//text drawing here ---> application
 		virtual void drawText(Shader* shader, const char *text, float x, float y, float sx, float sy, float r, float g, float b);
+
+		virtual void setTexture(PNGFile* png);
 
 		virtual void swapBuffers();
 
 	private:
 		const char *m_fontFilename;
 		
+		GLuint m_text;
+
 		FT_Library m_ft;
 		FT_Face m_face;
 		GLuint m_vbo;
