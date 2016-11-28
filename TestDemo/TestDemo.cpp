@@ -8,7 +8,6 @@
 
 #include <PNGFile.h>
 
-
 int _tmain(int argc, _TCHAR* argv[])
 {
 	int w = 640;
@@ -26,14 +25,11 @@ int _tmain(int argc, _TCHAR* argv[])
 	engine::Ref<engine::Application> app =
 		new engine::Application();
 	window->setApplication(app);
-	
-	const char *fontfilename = "comic.ttf";
+
+	const char *fontfilename = "../fonts/StencilStd.otf";
+
 	graphicsSystem->initText(fontfilename);
-
-
 	
-
-
 	//teksti menee applicationiin ja renderöidää sieltä
 
 	engine::ElapsedTimer frameTimer;
@@ -43,12 +39,8 @@ int _tmain(int argc, _TCHAR* argv[])
 	{
 		float deltaTime = frameTimer.getTime();
 		frameTimer.reset();
-
 		
 		app->update(deltaTime);
-
-		
-
 	}
 
 	printf("Closing...\n");

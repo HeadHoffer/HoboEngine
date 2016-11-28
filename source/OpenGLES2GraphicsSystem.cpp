@@ -103,8 +103,6 @@ namespace engine
 		//}
 
 		//int num = glGetError();
-
-
 	}
 
 	OpenGLES2GraphicsSystem::~OpenGLES2GraphicsSystem()

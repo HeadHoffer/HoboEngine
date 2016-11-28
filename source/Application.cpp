@@ -3,7 +3,6 @@
 #include <Window.h>
 #include <stdio.h>
 #include <math.h>
-#include <Text.h>
 #include <PNGFile.h>
 
 namespace engine
@@ -148,11 +147,9 @@ namespace engine
 		graphicsSystem->drawTriangle(m_shader[0], m_texture[0], textCords, square1, 6);
 
 		//drawing the text(s), drawText(shader, text, x, y, sx, sy, r, g, b)
-		graphicsSystem->drawText(m_shader[1], "hello gordon freeman", -1, 0.825, sx, sy, 1, 0 , 0);
-		graphicsSystem->drawText(m_shader[1], "adsadasasda", -0.8, 0.5, sx, sy, 0, 1, 0);
+		graphicsSystem->drawText(m_shader[1], "helo wurld", -1, 0.825, sx, sy, 1, 0 , 0);
+		graphicsSystem->drawText(m_shader[1], "asdasdasd", -0.4, 0.0, sx, sy, 0, 1, 0);
 
 		graphicsSystem->swapBuffers();	
 	}
 }
-
-

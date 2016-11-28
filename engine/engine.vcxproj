@@ -79,7 +79,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\ft2build.h" />
-    <ClInclude Include="..\include\Text.h" />
     <ClInclude Include="..\include\android\AndroidFile.h" />
     <ClInclude Include="..\include\android\AndroidWindow.h" />
     <ClInclude Include="..\include\Application.h" />
@@ -101,7 +100,6 @@
     <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\source\Text.cpp" />
     <ClCompile Include="..\source\android\AndroidFile.cpp" />
     <ClCompile Include="..\source\android\AndroidWindow.cpp" />
     <ClCompile Include="..\source\Application.cpp" />
