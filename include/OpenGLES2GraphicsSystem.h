@@ -29,7 +29,7 @@ namespace engine
 		virtual void drawTriangle(Shader* shader, Texture* texture, float textCords[], float vertices[], int numVertices);
 
 		//text drawing here ---> application
-		virtual void drawText(Shader* shader, const char *text, float x, float y, float sx, float sy);
+		virtual void drawText(Shader* shader, const char *text, float x, float y, float sx, float sy, float r, float g, float b);
 
 		virtual void swapBuffers();
 
@@ -53,8 +53,7 @@ namespace engine
 		
 		EGLDisplay m_eglDisplay;
 		EGLContext m_eglContext;
-		EGLSurface m_eglSurface;	
-		
+		EGLSurface m_eglSurface;			
 	};
 }
 

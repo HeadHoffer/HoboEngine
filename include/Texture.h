@@ -12,6 +12,7 @@ namespace engine
 		Texture(int width, int height, int bytesPerPixel, const GLubyte* pixels);
 		~Texture();
 
+		//void textTexture();
 		GLuint getTextureID() const;
 
 	private:

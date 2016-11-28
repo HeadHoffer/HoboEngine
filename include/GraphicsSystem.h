@@ -19,7 +19,7 @@ namespace engine
 
 		virtual void clearScreen(float red, float green, float blue) = 0;
 		virtual void drawTriangle(Shader* shader, Texture* texture, float textCoords[], float vertices[], int numVertices) = 0;
-		virtual void drawText(Shader* shader, const char *text, float x, float y, float sx, float sy) = 0;
+		virtual void drawText(Shader* shader, const char *text, float x, float y, float sx, float sy, float r, float g, float b) = 0;
 
 		virtual void swapBuffers() = 0;
 	};

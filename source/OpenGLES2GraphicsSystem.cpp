@@ -145,6 +145,7 @@ namespace engine
 	{
 		m_fontFilename = fontFilename;
 
+		//initialize the freetype library
 		if (FT_Init_FreeType(&m_ft))
 		{
 			fprintf(stderr, "Could not init freetype library\n");
@@ -161,47 +162,52 @@ namespace engine
 		else
 			printf("Font loaded!\n");
 
+		//debug stuff---------------------------
 		if (m_ft == NULL)
 		{
-			printf("m_ft is kill");
+			printf("m_ft is NULL");
 		}
 		else
 			printf("m_ft: %s\n", m_ft);
 
 		if (m_face == NULL)
 		{
-			printf("m_face is kill");
+			printf("m_face is NULL");
 		}
 		else
 			printf("m_face: %s\n", m_face);
-
-		//create the vertex buffer object
-		glGenBuffers(1, &m_vbo);
+		//--------------------------------------
 
 		return 1;
 	}
 
 	//text 
-	void OpenGLES2GraphicsSystem::drawText(Shader* shader, const char* text, float x, float y, float sx, float sy)
+	void OpenGLES2GraphicsSystem::drawText(Shader* shader, const char* text, float x, float y, float sx, float sy, float red, float green, float blue)
 	{
-		shader->UseShader();
+		shader->UseShader();		
 
+		GLint attributeCoord = glGetAttribLocation(shader->getProgram(), "textCoord");
+		GLint uniformTex = glGetUniformLocation(shader->getProgram(), "textTexture");
+		GLint uniformColor = glGetUniformLocation(shader->getProgram(), "textColor");
+
+		//----------------------------------------------------------------------------
+
+		//create the vertex buffer object
+		glGenBuffers(1, &m_vbo);
+
+		//font color (r, g, b, alpha)
+		GLfloat color[4] = { red, green, blue, 1 };
+		
+		//set font size and color (pls scale font like this, not with sx, sy)
 		FT_Set_Pixel_Sizes(m_face, 0, 48);
 
-		GLint attribute_coord = glGetAttribLocation(shader->getProgram(), "coord");
-		GLint uniform_tex = glGetUniformLocation(shader->getProgram(), "tex");
-		GLint uniform_color = glGetUniformLocation(shader->getProgram(), "color");
-
-		const char *p;
-		FT_GlyphSlot g = m_face->glyph;
-
-		//create a texture that will be used to hold one "glyph"
-		GLuint tex;
-		glGenTextures(1, &tex);
+		//create and bind a texture that will be used to hold one "glyph"
+		GLuint texture;
+		glGenTextures(1, &texture);
 
 		glActiveTexture(GL_TEXTURE0);
-		glBindTexture(GL_TEXTURE_2D, tex);
-		glUniform1i(uniform_tex, 0);
+		glBindTexture(GL_TEXTURE_2D, texture);
+		glUniform1i(uniformTex, 0);
 
 		//we require 1 byte alignment when uploading texture data
 		glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
@@ -213,18 +219,17 @@ namespace engine
 		//linear filtering usually looks best for text
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-
+		
 		//set up the VBO for our vertex data
-		glEnableVertexAttribArray(attribute_coord);
 		glBindBuffer(GL_ARRAY_BUFFER, m_vbo);
-		glVertexAttribPointer(attribute_coord, 4, GL_FLOAT, GL_FALSE, 0, 0);
 
-		//font color (r, g, b, alpha)
-		GLfloat color[4] = { 1, 0, 0, 1 };
+		glVertexAttribPointer(attributeCoord, 4, GL_FLOAT, GL_FALSE, 0, 0);
+		glEnableVertexAttribArray(attributeCoord);
+		
+		glUniform4fv(uniformColor, 1, color);
 
-		//set font size and color (pls scale font like this, not with sx, sy)
-		FT_Set_Pixel_Sizes(m_face, 0, 48);
-		glUniform4fv(uniform_color, 1, color);
+		const char *p;
+		FT_GlyphSlot g = m_face->glyph;
 
 		//loop through all characters
 		for (p = text; *p; p++)
@@ -239,15 +244,16 @@ namespace engine
 			//calculate the vertex and texture coordinates
 			float x2 = x + g->bitmap_left * sx;
 			float y2 = -y - g->bitmap_top * sy;
+			
 			float w = g->bitmap.width * sx;
 			float h = g->bitmap.rows * sy;
 
 			m_point box[4] =
 			{
-				{ x2, -y2, 0, 0 },
-				{ x2 + w, -y2, 1, 0 },
-				{ x2, -y2 - h, 0, 1 },
-				{ x2 + w, -y2 - h, 1, 1 },
+				{ x2, - y2, 0, 0 },
+				{ x2 + w, - y2, 1, 0 },
+				{ x2, - y2 - h, 0, 1 },
+				{ x2 + w, - y2 - h, 1, 1 },
 			};
 
 			//draw the character on the screen
@@ -259,11 +265,10 @@ namespace engine
 			y += (g->advance.y >> 6) * sy;
 		}
 
-
-
-		glDisableVertexAttribArray(attribute_coord);
-		glDeleteTextures(1, &tex);
-
+		//delete the vertex buffer object and textures
+		glDeleteBuffers(1, &m_vbo);
+		glDisableVertexAttribArray(attributeCoord);
+		glDeleteTextures(1, &texture);
 	}
 
 	void OpenGLES2GraphicsSystem::swapBuffers()

@@ -11,7 +11,7 @@ namespace engine
 	Application::Application() : Object(), 
 		m_totalTime(0.0f)
 	{
-
+		//square shader
 		char texturedVertexShader[] =
 			"attribute vec4 vPosition;    \n"
 			"attribute vec2 vTexCord;     \n"
@@ -31,7 +31,6 @@ namespace engine
 			"  gl_FragColor = texture2D(texture, texCord);	  \n"
 			"}                                                \n";
 
-		m_shader.push_back(new Shader(texturedVertexShader, texturedFragmentShader));
 		m_shader.push_back(new Shader(texturedVertexShader, texturedFragmentShader));
 
 		//4x4 image, 3 bytes per pixel
@@ -57,25 +56,25 @@ namespace engine
 
 		m_texture.push_back(new Texture(4, 4, 3, pixels));
 
-		//text shader
+		//text shaders
 		char textVertexShader[] =
-			"attribute vec4 coord;"
-			"varying vec2 texpos;"
+			"attribute vec4 textCoord;"
+			"varying vec2 textPos;"
 
 			"void main(void)"
 			"{"
-			"	gl_Position = vec4(coord.xy, 0, 1);"
-			"	texpos = coord.zw;"
+			"	gl_Position = vec4(textCoord.xy, 0, 1);"
+			"	textPos = textCoord.zw;"
 			"}";
 
 		char textFragmentShader[] =
-			"varying vec2 texpos;"
-			"uniform sampler2D tex;"
-			"uniform vec4 color;"
+			"varying vec2 textPos;"
+			"uniform sampler2D textTexture;"
+			"uniform vec4 textColor;"
 
 			"void main(void)"
 			"{"
-			"	gl_FragColor = vec4(1, 1, 1, texture2D(tex, texpos).a) * color;"
+			"	gl_FragColor = vec4(1, 1, 1, texture2D(textTexture, textPos).a) * textColor;"
 			"}";
 
 		m_shader.push_back(new Shader(textVertexShader, textFragmentShader));
@@ -108,7 +107,6 @@ namespace engine
 	{ 
 		float sx = 2.0 / window->getWidth();
 		float sy = 2.0 / window->getHeight();
-
 
 		//printf("%s\n", __FUNCTION__);
 		
@@ -146,10 +144,12 @@ namespace engine
 			0, 0,
 		};
 
-		//drawing the squares
-
-		graphicsSystem->drawText(m_shader[2], "hello gordon freeman", -1, 0.825, sx, sy);
+		//drawing the square(s)
 		graphicsSystem->drawTriangle(m_shader[0], m_texture[0], textCords, square1, 6);
+
+		//drawing the text(s), drawText(shader, text, x, y, sx, sy, r, g, b)
+		graphicsSystem->drawText(m_shader[1], "hello gordon freeman", -1, 0.825, sx, sy, 1, 0 , 0);
+		graphicsSystem->drawText(m_shader[1], "adsadasasda", -0.8, 0.5, sx, sy, 0, 1, 0);
 
 		graphicsSystem->swapBuffers();	
 	}
