@@ -10,9 +10,10 @@ namespace engine
 	{
 	}
 
-	GLuint PNGFile::loadTexture(const std::string filename, int &width, int &height)
+	//loading png texture
+	GLuint PNGFile::loadTexture(const std::string filename, int width, int height)
 	{
-		// header for testing if it is a png
+		//header for testing if it is a png
 		png_byte header[8];
 
 		//open file as binary
@@ -59,7 +60,6 @@ namespace engine
 			fclose(fp);
 			return (TEXTURE_LOAD_ERROR);
 		}
-
 
 		if (setjmp(png_jmpbuf(png_ptr)))
 		{
@@ -126,8 +126,7 @@ namespace engine
 		GLuint texture;
 		glGenTextures(1, &texture);
 		glBindTexture(GL_TEXTURE_2D, texture);
-		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0,
-			GL_RGB, GL_UNSIGNED_BYTE, (GLvoid*)image_data);
+		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, (GLvoid*)image_data);
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 
 		//clean up memory and close stuff

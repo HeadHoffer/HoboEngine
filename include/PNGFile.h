@@ -3,7 +3,7 @@
 
 #include <Object.h>
 #include <GLES2\gl2.h>
-#include <lpng1513\png.h>
+#include <lpng1626\png.h>
 #include <malloc.h>
 //#include <assert.h>
 //#include <Ref.h>
@@ -24,7 +24,7 @@ namespace engine
 		PNGFile();
 		~PNGFile();
 
-		GLuint loadTexture(const std::string filename, int &width, int &height);
+		GLuint loadTexture(const std::string filename, int width, int height);
 		GLuint returnTexture();
 
 		//void readPNGFile(char *filename);
