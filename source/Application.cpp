@@ -75,7 +75,7 @@ namespace engine
 			"{"
 			"	gl_FragColor = vec4(1, 1, 1, texture2D(textTexture, textPos).a) * textColor;"
 			"}";
-
+		
 		m_shader.push_back(new Shader(textVertexShader, textFragmentShader));
 
 		////2x2 image, 3 bytes per pixel
@@ -154,9 +154,10 @@ namespace engine
 			1, 0,
 			0, 0,
 		};
+
 		//drawing the square(s)
 		graphicsSystem->drawTriangle(m_shader[0], m_texture[0], textCords, square1, 6);
-		//graphicsSystem->drawPNG(m_shader[1], textCords, square2, 6);
+		//graphicsSystem->drawPNG(m_shader[0], text);
 
 		//drawing the text(s), drawText(shader, text, x, y, sx, sy, r, g, b)
 		graphicsSystem->drawText(m_shader[1], "helo wurld", -1, 0.825, sx, sy, 1, 0 , 0);

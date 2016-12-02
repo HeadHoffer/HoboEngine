@@ -140,33 +140,26 @@ namespace engine
 		glDrawArrays(GL_TRIANGLES, 0, numVertices);
 	}
 
-	void OpenGLES2GraphicsSystem::setTexture(PNGFile* png)
-	{
-		int w = 512;
-		int h = 512;
+	//void OpenGLES2GraphicsSystem::setTexture(PNGFile* png)
+	//{
+	//	m_text = png->loadTexture("Illuminati.png", 512, 512);
+	//}
 
-		m_text = png->loadTexture("Illuminati.png", w, h);
-	}
+	//void OpenGLES2GraphicsSystem::drawPNG(Shader* shader, GLuint texture)
+	//{
+	//	shader->UseShader();
 
-	void OpenGLES2GraphicsSystem::drawPNG(Shader* shader, float textCords[], float vertices[], int numVertices)
-	{
-		shader->UseShader();
+	//	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, 0);
+	//	glEnableVertexAttribArray(0);
 
-		glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, vertices);
-		glEnableVertexAttribArray(0);
+	//	//Bind texture
+	//	glActiveTexture(GL_TEXTURE0);
+	//	glBindTexture(GL_TEXTURE_2D, texture);
 
-		//Set texture coordinates
-		glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 0, textCords);
-		glEnableVertexAttribArray(1);
-		
-		//Bind texture
-		glActiveTexture(GL_TEXTURE0);
-		glBindTexture(GL_TEXTURE_2D, m_text);
-		
-		//Set the sampler texture unit to 0
-		glUniform1i(shader->getUniformLocation("texture"), 0);
-		glDrawArrays(GL_TRIANGLES, 0, numVertices);
-	}
+	//	//Set the sampler texture unit to 0
+	//	glUniform1i(shader->getUniformLocation("texture"), 0);
+	//	glDrawArrays(GL_TRIANGLES, 0, 4);
+	//}
 
 	int OpenGLES2GraphicsSystem::initText(const char* fontFilename)
 	{

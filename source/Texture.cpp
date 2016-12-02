@@ -2,6 +2,8 @@
 #include <malloc.h>
 #include <stdio.h>
 
+#include <GLES2\gl2.h>
+
 namespace engine
 {
 	Texture::Texture(int width, int height, int bytesPerPixel, const GLubyte* pixels) : Object(),

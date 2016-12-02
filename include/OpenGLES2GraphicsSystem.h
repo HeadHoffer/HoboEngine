@@ -29,11 +29,11 @@ namespace engine
 		virtual void clearScreen(float red, float green, float blue);
 		//virtual void drawTriangle(Shader* shader, float vertices[], int numvertices);
 		virtual void drawTriangle(Shader* shader, Texture* texture, float textCords[], float vertices[], int numVertices);
-		virtual void drawPNG(Shader* shader, float textCords[], float vertices[], int numVertices);
+		//virtual void drawPNG(Shader* shader, GLuint texture);
 		//text drawing here ---> application
 		virtual void drawText(Shader* shader, const char *text, float x, float y, float sx, float sy, float r, float g, float b);
 
-		virtual void setTexture(PNGFile* png);
+		//virtual void setTexture(PNGFile* png);
 
 		virtual void swapBuffers();
 
