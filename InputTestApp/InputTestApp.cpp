@@ -1,3 +1,6 @@
+// InputTestApp.cpp : Defines the entry point for the console application.
+//
+
 #include "stdafx.h"
 
 #include <Win32Window.h>
@@ -32,7 +35,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	const char *fontfilename = "../fonts/StencilStd.otf";
 
 	graphicsSystem->initText(fontfilename);
-	
+
 	//teksti menee applicationiin ja renderöidää sieltä
 
 	engine::ElapsedTimer frameTimer;
@@ -44,7 +47,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	{
 		float deltaTime = frameTimer.getTime();
 		frameTimer.reset();
-		
+
 
 		app->update(deltaTime);
 	}
@@ -53,6 +56,3 @@ int _tmain(int argc, _TCHAR* argv[])
 
 	return 0;
 }
-
-
-
