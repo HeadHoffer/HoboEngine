@@ -180,10 +180,13 @@ namespace engine
 		//drawing the square(s)
 		graphicsSystem->drawTriangle(m_shader[0], m_texture[0], textCords, square1, 6);
 		//graphicsSystem->drawPNG(m_shader[0], text);
-		graphicsSystem->drawTexture(textCords, square1, 6, "Illuminati.png", 512, 512);
+		
+		graphicsSystem->drawTexture(textCords, square2, 6, "../pictures/remove.png", 512, 512);
+		//graphicsSystem->drawTexture(textCords, square1, 6, "Illuminati.png", 512, 512);
+
 		//drawing the text(s), drawText(shader, text, x, y, sx, sy, r, g, b)
-		graphicsSystem->drawText(m_shader[2], "helo wurld", -1, 0.825, sx, sy, 1, 0 , 0);
-		graphicsSystem->drawText(m_shader[2], "asdasdasd", -0.4, 0.0, sx, sy, 0, 1, 0);
+		//graphicsSystem->drawText(m_shader[2], "clinton killed harambe", -1, 0.825, sx, sy, 1, 0 , 0);
+		graphicsSystem->drawText(m_shader[2], "remove kebab", -0.5, -0.5, sx, sy, 1, 1, 1);
 
 		graphicsSystem->swapBuffers();	
 	}

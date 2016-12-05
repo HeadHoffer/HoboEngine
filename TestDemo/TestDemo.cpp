@@ -8,13 +8,14 @@
 #include <Input.h>
 #include <PNGFile.h>
 
+#include <irrKlang\irrKlang.h>
+
 int _tmain(int argc, _TCHAR* argv[])
 {
+	using namespace irrklang;
+
 	int w = 640;
 	int h = 480;
-
-	int ww = 512;
-	int hh = 512;
 
 	printf("Created window (%d, %d)\n", w, h);
 
@@ -29,23 +30,24 @@ int _tmain(int argc, _TCHAR* argv[])
 		new engine::Application();
 	window->setApplication(app);
 
-	const char *fontfilename = "../fonts/StencilStd.otf";
-
+	//load and initialize font
+	const char *fontfilename = "../fonts/comic.ttf";
 	graphicsSystem->initText(fontfilename);
 	
-	//teksti menee applicationiin ja renderöidää sieltä
-
+	//sound stuff
+	ISoundEngine *SoundEngine = createIrrKlangDevice();
+	//play3D is better and the audio can be looped
+	SoundEngine->play3D("../audio/kebab.mp3", vec3df(0, 0, 0), true, false, true);
+	//SoundEngine->play2D("audio/kebab.mp3", GL_TRUE);
+	
 	engine::ElapsedTimer frameTimer;
 	frameTimer.reset();
-
-
 
 	while (window->updateMessages())
 	{
 		float deltaTime = frameTimer.getTime();
 		frameTimer.reset();
 		
-
 		app->update(deltaTime);
 	}
 
