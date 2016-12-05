@@ -79,7 +79,7 @@ namespace engine
 			NULL,
 			hInstance,
 			NULL);
-
+		
 		SetWindowLongPtr(m_hwnd, GWL_USERDATA, (LONG)(LONG_PTR)this);
 
 		if (m_hwnd == NULL)

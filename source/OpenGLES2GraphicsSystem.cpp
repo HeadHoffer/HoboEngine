@@ -281,6 +281,8 @@ namespace engine
 		//Set the sampler texture unit to 0
 		//glUniform1i(shader->getUniformLocation("texture"), 0);
 		glDrawArrays(GL_TRIANGLES, 0, numVertices);
+
+		glDeleteTextures(1, &texture);
 	}
 
 	int OpenGLES2GraphicsSystem::initText(const char* fontFilename)

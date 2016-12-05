@@ -127,7 +127,7 @@ namespace engine
 	void Application::render(Window* window, GraphicsSystem* graphicsSystem)
 	{ 
 		float sx = 2.0 / window->getWidth();
-		float sy = 2.0 / window->getHeight();
+		float sy = 2.0 / window->getHeight();	
 
 		//printf("%s\n", __FUNCTION__);
 		
