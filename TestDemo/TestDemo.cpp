@@ -16,6 +16,8 @@ int _tmain(int argc, _TCHAR* argv[])
 	int ww = 512;
 	int hh = 512;
 
+	
+
 	printf("Created window (%d, %d)\n", w, h);
 
 	engine::Ref<engine::Win32Window> window =
@@ -38,15 +40,17 @@ int _tmain(int argc, _TCHAR* argv[])
 	engine::ElapsedTimer frameTimer;
 	frameTimer.reset();
 
-
+	engine::Input* input = new engine::Input();
 
 	while (window->updateMessages())
 	{
 		float deltaTime = frameTimer.getTime();
 		frameTimer.reset();
 		
+		
 
 		app->update(deltaTime);
+		input->keyOperations();
 	}
 
 	printf("Closing...\n");
