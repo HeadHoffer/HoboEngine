@@ -41,7 +41,7 @@ int _tmain(int argc, _TCHAR* argv[])
 	engine::ElapsedTimer frameTimer;
 	frameTimer.reset();
 
-
+	engine::Input();
 
 	while (window->updateMessages())
 	{

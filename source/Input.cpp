@@ -14,12 +14,12 @@ namespace engine
 	{
 	}
 
-	void Input::keyOperations(void)
+	void Input::keyOperations()
 	{
 		if (keyStates['a'])
 		{
 			//If the a key has been pressed preform a key operations
-			printf("hello gordom freeman there is still something wrong with my voice");
+			
 		}
 
 	}
@@ -28,12 +28,13 @@ namespace engine
 	{
 		keyStates[key] = true;
 
-		printf("key", key, "pressed");
+		//printf("key", key, "pressed");
+		printf("something is press");
 	}
 
 	void Input::keyUp(unsigned char key, int x, int y)
 	{
 		keyStates[key] = false;
-		printf("key", key, "up");
+		//printf("key", key, "up");
 	}
 }
