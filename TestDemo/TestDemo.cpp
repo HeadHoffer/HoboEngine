@@ -17,11 +17,6 @@ int _tmain(int argc, _TCHAR* argv[])
 	int w = 640;
 	int h = 480;
 
-	int ww = 512;
-	int hh = 512;
-
-	
-
 	printf("Created window (%d, %d)\n", w, h);
 
 	engine::Ref<engine::Win32Window> window =
