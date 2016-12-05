@@ -25,23 +25,6 @@ namespace engine
 		~PNGFile();
 
 		GLuint loadTexture(const std::string filename, int width, int height);
-		GLuint returnTexture();
-
-		//void readPNGFile(char *filename);
-		//void writePNGFile(char *filename);
-		//void processPNGFile();
-
-		//int stuffHappnes(int argc, char *argv[]);
-
-	private:
-		//GLuint m_pngTexture;
-
-		//int width, height;
-		//png_byte color_type;
-		//png_byte bit_depth;
-		//png_bytep *row_pointers;
-		//char * filename = "pngtest.png";
-		
 	};
 }
 
