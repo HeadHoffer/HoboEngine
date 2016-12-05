@@ -3,6 +3,7 @@
 
 #include <Object.h>
 #include <GLES2\gl2.h>
+#include <string>
 
 namespace engine
 {
@@ -24,6 +25,7 @@ namespace engine
 		//virtual void drawPNG(Shader* shader, GLuint texture) = 0;
 		virtual void drawText(Shader* shader, const char *text, float x, float y, float sx, float sy, float r, float g, float b) = 0;
 		//virtual void setTexture(PNGFile* png) = 0;
+		virtual void drawTexture(float textCords[], float vertices[], int numVertices, const std::string filename, int width, int height) = 0;
 
 		virtual void swapBuffers() = 0;
 	};

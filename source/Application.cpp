@@ -55,6 +55,27 @@ namespace engine
 
 		m_texture.push_back(new Texture(4, 4, 3, pixels));
 
+		//square shader
+		char VertexShader[] =
+			"attribute vec4 vPosition;    \n"
+			"attribute vec2 vTexCord;     \n"
+			"varying vec2 texCord;        \n"
+			"void main()                  \n"
+			"{                            \n"
+			"   gl_Position = vPosition;  \n"
+			"   texCord = vTexCord;       \n"
+			"}                            \n";
+
+		char FragmentShader[] =
+			"uniform sampler2D texture;                       \n"
+			"varying vec2 texCord;                            \n"
+			"void main()                                      \n"
+			"{                                                \n"
+			"  gl_FragColor = texture2D(texture, texCord);	  \n"
+			"}                                                \n";
+
+		m_shader.push_back(new Shader(VertexShader, FragmentShader));
+
 		//text shaders
 		char textVertexShader[] =
 			"attribute vec4 textCoord;"
@@ -135,13 +156,13 @@ namespace engine
 
 		float square2[] =
 		{
-			-1.0f, -1.0f, 0.0f,
-			1.0f, -1.0f, 0.0f,
-			1.0f, 1.0, 0.0f,
+			-1, -1, 0.0f,
+			1, -1, 0.0f,
+			1, 1, 0.0f,
 
-			1.0f, 1.0f, 0.0f,
-			-1.0f, 1.0f, 0.0f,
-			-1.0f, -1.0f, 0.0f,
+			1, 1, 0.0f,
+			-1, 1, 0.0f,
+			-1, -1, 0.0f,
 		};
 
 		//texture cordinates
@@ -155,13 +176,14 @@ namespace engine
 			0, 0,
 		};
 
+
 		//drawing the square(s)
 		graphicsSystem->drawTriangle(m_shader[0], m_texture[0], textCords, square1, 6);
 		//graphicsSystem->drawPNG(m_shader[0], text);
-
+		graphicsSystem->drawTexture(textCords, square1, 6, "Illuminati.png", 512, 512);
 		//drawing the text(s), drawText(shader, text, x, y, sx, sy, r, g, b)
-		graphicsSystem->drawText(m_shader[1], "helo wurld", -1, 0.825, sx, sy, 1, 0 , 0);
-		graphicsSystem->drawText(m_shader[1], "asdasdasd", -0.4, 0.0, sx, sy, 0, 1, 0);
+		graphicsSystem->drawText(m_shader[2], "helo wurld", -1, 0.825, sx, sy, 1, 0 , 0);
+		graphicsSystem->drawText(m_shader[2], "asdasdasd", -0.4, 0.0, sx, sy, 0, 1, 0);
 
 		graphicsSystem->swapBuffers();	
 	}
