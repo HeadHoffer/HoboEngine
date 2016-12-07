@@ -175,6 +175,17 @@ namespace engine
 			-0.5f, 0.5f, 0.0f,
 			-0.5f, -0.5f, 0.0f,
 		};
+		const float OFFSET_Y = 0.4f;
+		float square4[] =
+		{
+			-0.5f * sini1, OFFSET_Y + -0.5f * cosi1, 0.0f,
+			0.5f * cosi1, OFFSET_Y + -0.5f  * sini1, 0.0f,
+			0.5f * sini1, OFFSET_Y + 0.5f  * cosi1, 0.0f,
+
+			0.5f * sini1, OFFSET_Y + 0.5f * cosi1, 0.0f,
+			-0.5f * cosi1, OFFSET_Y + 0.5f * sini1, 0.0f,
+			-0.5f * sini1, OFFSET_Y + -0.5f * cosi1, 0.0f,
+		};
 
 		//texture cordinates
 		float textCords[] = 
@@ -192,7 +203,7 @@ namespace engine
 		//graphicsSystem->drawPNG(m_shader[0], text);
 		
 		graphicsSystem->drawTexture(textCords, square2, 6, "../pictures/remove.png", 512, 512);
-		graphicsSystem->drawTexture(textCords, square3, 6, "../pictures/harambe.png", 512, 512);
+		graphicsSystem->drawTexture(textCords, square4, 6, "../pictures/harambe.png", 512, 512);
 		//graphicsSystem->drawTexture(textCords, square1, 6, "Illuminati.png", 512, 512);
 
 		//drawing the text(s), drawText(shader, text, x, y, sx, sy, r, g, b)

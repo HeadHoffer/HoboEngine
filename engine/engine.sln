@@ -7,8 +7,6 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "engine", "engine.vcxproj", 
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TestDemo", "..\TestDemo\TestDemo.vcxproj", "{7087D9C5-1583-4CE4-9D07-AB2836A30CB3}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "InputTestApp", "..\InputTestApp\InputTestApp.vcxproj", "{F861A594-DBDA-4271-B5D2-2162B689E831}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -23,10 +21,6 @@ Global
 		{7087D9C5-1583-4CE4-9D07-AB2836A30CB3}.Debug|Win32.Build.0 = Debug|Win32
 		{7087D9C5-1583-4CE4-9D07-AB2836A30CB3}.Release|Win32.ActiveCfg = Release|Win32
 		{7087D9C5-1583-4CE4-9D07-AB2836A30CB3}.Release|Win32.Build.0 = Release|Win32
-		{F861A594-DBDA-4271-B5D2-2162B689E831}.Debug|Win32.ActiveCfg = Debug|Win32
-		{F861A594-DBDA-4271-B5D2-2162B689E831}.Debug|Win32.Build.0 = Debug|Win32
-		{F861A594-DBDA-4271-B5D2-2162B689E831}.Release|Win32.ActiveCfg = Release|Win32
-		{F861A594-DBDA-4271-B5D2-2162B689E831}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
