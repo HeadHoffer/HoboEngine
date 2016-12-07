@@ -41,7 +41,9 @@ namespace engine
 			int width = rect.right - rect.left;
 			int height = rect.bottom - rect.top;
 
-			glViewport(0, 0, width, height);
+			Win32Window* window = (Win32Window*)(LONG_PTR)GetWindowLongPtr(hWnd, GWL_USERDATA);
+			window->setSize(width, height);
+			
 		}
 		break;
 
@@ -71,7 +73,8 @@ namespace engine
 		if (!RegisterClass(&wndClass))
 			return; //fail
 
-		wStyle = WS_VISIBLE | WS_POPUP | WS_BORDER | WS_SYSMENU | WS_CAPTION /*| WS_MAXIMIZEBOX */| WS_MINIMIZEBOX;
+		
+		wStyle = WS_VISIBLE | WS_POPUP | WS_BORDER | WS_SYSMENU | WS_CAPTION | WS_MAXIMIZEBOX | WS_MINIMIZEBOX;
 
 		windowRect.left = 0;
 		windowRect.top = 0;
