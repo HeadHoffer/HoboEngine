@@ -17,14 +17,11 @@ int _tmain(int argc, _TCHAR* argv[])
 	int w = 640;
 	int h = 480;
 
-<<<<<<< HEAD
 
 	int ww = 512;
 	int hh = 512;
 
 
-=======
->>>>>>> 3179c5964917a1afe413d6c24b95b42e6a752bfd
 	printf("Created window (%d, %d)\n", w, h);
 
 	engine::Ref<engine::Win32Window> window =
@@ -53,21 +50,12 @@ int _tmain(int argc, _TCHAR* argv[])
 
 	engine::Input* input = new engine::Input();
 
-<<<<<<< HEAD
 
-
-
-=======
->>>>>>> 3179c5964917a1afe413d6c24b95b42e6a752bfd
 	while (window->updateMessages())
 	{
 		float deltaTime = frameTimer.getTime();
 		frameTimer.reset();
-<<<<<<< HEAD
 
-=======
-		
->>>>>>> 3179c5964917a1afe413d6c24b95b42e6a752bfd
 		app->update(deltaTime);
 
 	}
