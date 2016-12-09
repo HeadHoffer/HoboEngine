@@ -209,8 +209,9 @@ namespace engine
 		//graphicsSystem->drawTexture(textCords, square1, 6, "Illuminati.png", 512, 512);
 
 		//drawing the text(s), drawText(shader, text, x, y, sx, sy, r, g, b)
-		graphicsSystem->drawText(m_shader[2], "clinton killed harambe", -1, 0.825, sx, sy, 1, 0 , 0);
-		graphicsSystem->drawText(m_shader[2], "remove winston", -0.5, -0.5, sx, sy, 0, 1, 0);
+		graphicsSystem->drawText(m_shader[2], "clinton killed harambe", -1, 0.825f, sx, sy, 1, 0 , 0);
+		graphicsSystem->drawText(m_shader[2], "remove winston", -0.5f, -0.5f, sx, sy, 0, 1, 0);
+		graphicsSystem->drawText(m_shader[2], "dank memes", -0.7f, -0.7f, sx, sy, 1, 0, 1 );
 
 		graphicsSystem->swapBuffers();	
 		
