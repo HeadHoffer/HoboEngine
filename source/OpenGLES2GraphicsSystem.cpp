@@ -7,17 +7,15 @@
 
 #include <initializer_list>
 
-#define TEXTURE_LOAD_ERROR 0
-
 namespace engine
 {
-	OpenGLES2GraphicsSystem::OpenGLES2GraphicsSystem(Window* window) : GraphicsSystem(), 
-		m_window(window), 
+	OpenGLES2GraphicsSystem::OpenGLES2GraphicsSystem(Window* window) : GraphicsSystem(),
+		m_window(window),
 		m_active(false)
 	{
 		assert(m_window != 0);
 
-		EGLint attribList[] = 
+		EGLint attribList[] =
 		{
 			EGL_RED_SIZE, 8,
 			EGL_GREEN_SIZE, 8,
@@ -32,11 +30,11 @@ namespace engine
 		EGLint w, h, format;
 		EGLint numConfigs;
 		EGLConfig config = NULL;
-		
+
 		m_eglDisplay = eglGetDisplay(EGL_DEFAULT_DISPLAY);
-		
+
 		eglInitialize(m_eglDisplay, 0, 0);
-		
+
 		//Here, the application chooses the configuration it desires.
 		//find the best match if possible, otherwise use the very first one
 		eglChooseConfig(m_eglDisplay, attribList, nullptr, 0, &numConfigs);
@@ -45,7 +43,7 @@ namespace engine
 		eglChooseConfig(m_eglDisplay, attribList, supportedConfigs, numConfigs, &numConfigs);
 		assert(numConfigs);
 		int i = 0;
-		
+
 		for (; i < numConfigs; i++)
 		{
 			EGLConfig& cfg = supportedConfigs[i];
@@ -54,49 +52,49 @@ namespace engine
 				eglGetConfigAttrib(m_eglDisplay, cfg, EGL_GREEN_SIZE, &g) &&
 				eglGetConfigAttrib(m_eglDisplay, cfg, EGL_BLUE_SIZE, &b) &&
 				eglGetConfigAttrib(m_eglDisplay, cfg, EGL_DEPTH_SIZE, &d) &&
-				r == 8 && g == 8 && b == 8 && d == 0) 
-			{ 
+				r == 8 && g == 8 && b == 8 && d == 0)
+			{
 				config = supportedConfigs[i];
 				break;
 			}
 		}
-		
-		if (i == numConfigs) 
+
+		if (i == numConfigs)
 		{
 			config = supportedConfigs[0];
-		} 
-	
+		}
+
 		//EGL_NATIVE_VISUAL_ID is an attribute of the EGLConfig that is
-	    //guaranteed to be accepted by ANativeWindow_setBuffersGeometry().
-	    //As soon as we picked a EGLConfig, we can safely reconfigure the
-	    //ANativeWindow buffers to match, using EGL_NATIVE_VISUAL_ID.
+		//guaranteed to be accepted by ANativeWindow_setBuffersGeometry().
+		//As soon as we picked a EGLConfig, we can safely reconfigure the
+		//ANativeWindow buffers to match, using EGL_NATIVE_VISUAL_ID.
 
 		eglGetConfigAttrib(m_eglDisplay, config, EGL_NATIVE_VISUAL_ID, &format);
 		m_eglSurface = eglCreateWindowSurface(m_eglDisplay, config, window->getNativeWindow(), NULL);
 		EGLint contextAttribs[] = { EGL_CONTEXT_CLIENT_VERSION, 2, EGL_NONE, EGL_NONE };
 		m_eglContext = eglCreateContext(m_eglDisplay, config, NULL, contextAttribs);
-	
+
 		if (eglMakeCurrent(m_eglDisplay, m_eglSurface, m_eglSurface, m_eglContext) == EGL_FALSE)
 		{
 			assert(0);
 			//LOGW("Unable to eglMakeCurrent");
 		}
-	
+
 		//Get size of the surface
 		eglQuerySurface(m_eglDisplay, m_eglSurface, EGL_WIDTH, &w);
 		eglQuerySurface(m_eglDisplay, m_eglSurface, EGL_HEIGHT, &h);
 		window->setSize(w, h);
-	
+
 		//Check openGL on the system
 		auto opengl_info = { GL_VENDOR, GL_RENDERER, GL_VERSION, GL_EXTENSIONS };
-		for (auto name : opengl_info) 
+		for (auto name : opengl_info)
 		{
 			auto info = glGetString(name);
 			//LOGI("OpenGL Info: %s", info);
 		}
 
 		m_active = true;
-		
+
 		//int n = eglGetError();
 		//if (n != EGL_SUCCESS)
 		//{
@@ -119,8 +117,6 @@ namespace engine
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
 		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-	
-
 	}
 
 	void OpenGLES2GraphicsSystem::drawTriangle(Shader* shader, Texture* texture, float textCords[], float vertices[], int numVertices)
@@ -154,10 +150,10 @@ namespace engine
 
 		//open file as binary
 		FILE *fp = fopen(filename.c_str(), "rb");
-		//if (!fp)
-		//{
-		//	return TEXTURE_LOAD_ERROR;
-		//}
+		if (!fp)
+		{
+			printf("png load error\n");
+		}
 
 		//read the header
 		fread(header, 1, 8, fp);
@@ -167,7 +163,7 @@ namespace engine
 		if (!is_png)
 		{
 			fclose(fp);
-			//return TEXTURE_LOAD_ERROR;
+			printf("png load error\n");
 		}
 
 		//create png struct
@@ -176,7 +172,7 @@ namespace engine
 		if (!png_ptr)
 		{
 			fclose(fp);
-			//return (TEXTURE_LOAD_ERROR);
+			printf("png load error\n");
 		}
 
 		//create png info struct
@@ -185,7 +181,7 @@ namespace engine
 		{
 			png_destroy_read_struct(&png_ptr, (png_infopp)NULL, (png_infopp)NULL);
 			fclose(fp);
-			//return (TEXTURE_LOAD_ERROR);
+			printf("png load error\n");
 		}
 
 		//create png info struct
@@ -194,14 +190,14 @@ namespace engine
 		{
 			png_destroy_read_struct(&png_ptr, &info_ptr, (png_infopp)NULL);
 			fclose(fp);
-			//return (TEXTURE_LOAD_ERROR);
+			printf("png load error\n");
 		}
 
 		if (setjmp(png_jmpbuf(png_ptr)))
 		{
 			png_destroy_read_struct(&png_ptr, &info_ptr, &end_info);
 			fclose(fp);
-			//return (TEXTURE_LOAD_ERROR);
+			printf("png load error\n");
 		}
 
 		//init png reading
@@ -236,7 +232,7 @@ namespace engine
 			//clean up memory and close stuff
 			png_destroy_read_struct(&png_ptr, &info_ptr, &end_info);
 			fclose(fp);
-			//return TEXTURE_LOAD_ERROR;
+			printf("png load error\n");
 		}
 
 		//row_pointers is for pointing to image_data for reading the png with libpng
@@ -247,7 +243,7 @@ namespace engine
 			png_destroy_read_struct(&png_ptr, &info_ptr, &end_info);
 			delete[] image_data;
 			fclose(fp);
-			//return TEXTURE_LOAD_ERROR;
+			printf("png load error\n");
 		}
 
 		//set the individual row_pointers to point at the correct offsets of image_data
@@ -290,47 +286,15 @@ namespace engine
 		glDeleteTextures(1, &texture);
 	}
 
-	int OpenGLES2GraphicsSystem::initText(const char* fontFilename)
-	{
-		m_fontFilename = fontFilename;
-
-		//initialize the freetype library
-		if (FT_Init_FreeType(&m_ft))
-		{
-			fprintf(stderr, "Could not init freetype library\n");
-			return 0;
-		}
-
-		//load a font
-		printf("Loading the font...");
-		if (FT_New_Face(m_ft, m_fontFilename, 0, &m_face))
-		{
-			fprintf(stderr, "Could not open font %s\n", m_fontFilename);
-			return 0;
-		}
-		else
-			printf("Font loaded!\n");
-
-		//debug stuff---------------------------
-		if (m_ft == NULL)
-		{
-			printf("m_ft is NULL");
-		}
-		else
-			printf("m_ft: %s\n", m_ft);
-
-		if (m_face == NULL)
-		{
-			printf("m_face is NULL");
-		}
-		else
-			printf("m_face: %s\n", m_face);
-		//--------------------------------------
-
-		return 1;
+	//setting the text face 
+	void OpenGLES2GraphicsSystem::setText(Text* text)
+	{	
+		m_face = text->getFace();
+		printf("SetFace\n");
+		printf("m_face: %s\n", m_face);
 	}
 
-	//text 
+	//text drawing
 	void OpenGLES2GraphicsSystem::drawText(Shader* shader, const char* text, float x, float y, float sx, float sy, float red, float green, float blue)
 	{
 		shader->UseShader();		

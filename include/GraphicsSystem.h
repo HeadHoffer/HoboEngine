@@ -4,6 +4,7 @@
 #include <Object.h>
 #include <GLES2\gl2.h>
 #include <string>
+#include <Text.h>
 
 namespace engine
 {
@@ -18,7 +19,7 @@ namespace engine
 		GraphicsSystem();
 		~GraphicsSystem();
 
-		virtual int initText(const char* fontFilename) = 0;
+		/*virtual int initText(const char* fontFilename) = 0;*/
 
 		virtual void clearScreen(float red, float green, float blue) = 0;
 		virtual void drawTriangle(Shader* shader, Texture* texture, float textCoords[], float vertices[], int numVertices) = 0;
@@ -27,7 +28,9 @@ namespace engine
 		//virtual void setTexture(PNGFile* png) = 0;
 		virtual void drawTexture(Shader* shader, float textCords[], float vertices[], int numVertices, const std::string filename, int width, int height) = 0;
 
-		virtual void swapBuffers() = 0;
+		virtual void setText(Text* text) = 0;
+
+		virtual void swapBuffers() = 0;	
 	};
 }
 

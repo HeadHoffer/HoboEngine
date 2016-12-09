@@ -91,6 +91,7 @@
     <ClInclude Include="..\include\PNGFile.h" />
     <ClInclude Include="..\include\Ref.h" />
     <ClInclude Include="..\include\Shader.h" />
+    <ClInclude Include="..\include\Text.h" />
     <ClInclude Include="..\include\Texture.h" />
     <ClInclude Include="..\include\win32\Win32File.h" />
     <ClInclude Include="..\include\win32\Win32Window.h" />
@@ -112,6 +113,7 @@
     <ClCompile Include="..\source\OpenGLES2GraphicsSystem.cpp" />
     <ClCompile Include="..\source\PNGFile.cpp" />
     <ClCompile Include="..\source\Shader.cpp" />
+    <ClCompile Include="..\source\Text.cpp" />
     <ClCompile Include="..\source\Texture.cpp" />
     <ClCompile Include="..\source\win32\Win32File.cpp" />
     <ClCompile Include="..\source\win32\Win32Window.cpp" />

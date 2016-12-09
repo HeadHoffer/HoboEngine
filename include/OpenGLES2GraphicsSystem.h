@@ -7,8 +7,7 @@
 
 #include <EGL/egl.h>
 #include <GLES2/gl2.h>
-
-#include <PNGFile.h>
+#include <Text.h>
 
 //freetype headers
 #include <ft2build.h>
@@ -26,8 +25,6 @@ namespace engine
 		OpenGLES2GraphicsSystem(Window* window);
 		~OpenGLES2GraphicsSystem();
 
-		virtual int initText(const char* fontFilename);
-
 		virtual void clearScreen(float red, float green, float blue);
 		//virtual void drawTriangle(Shader* shader, float vertices[], int numvertices);
 		virtual void drawTriangle(Shader* shader, Texture* texture, float textCords[], float vertices[], int numVertices);
@@ -36,16 +33,14 @@ namespace engine
 		virtual void drawText(Shader* shader, const char *text, float x, float y, float sx, float sy, float r, float g, float b);
 		virtual void drawTexture(Shader* shader, float textCords[], float vertices[], int numVertices, const std::string filename, int width, int height);
 		//virtual void setTexture(PNGFile* png);
-
+		
+		virtual void setText(Text* text);
+			
 		virtual void swapBuffers();
 
 	private:
-		const char *m_fontFilename;
-		
-		GLuint m_text;
-
-		FT_Library m_ft;
 		FT_Face m_face;
+		
 		GLuint m_vbo;
 
 		struct m_point
@@ -57,6 +52,7 @@ namespace engine
 		};
 
 		engine::Ref<Window> m_window;
+	
 		bool m_active;
 		
 		EGLDisplay m_eglDisplay;

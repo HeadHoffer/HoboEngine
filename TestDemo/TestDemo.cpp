@@ -8,21 +8,16 @@
 #include <Input.h>
 #include <PNGFile.h>
 #include <Windows.h>
+#include <Text.h>
 
 #include <irrKlang\irrKlang.h>
 
-
-int main()
+int _tmain(int argc, char *argv[])
 {
 	using namespace irrklang;
 
 	int w = 800;
 	int h = 800;
-
-
-	int ww = 512;
-	int hh = 512;
-
 
 	printf("Created window (%d, %d)\n", w, h);
 
@@ -37,10 +32,14 @@ int main()
 		new engine::Application();
 	window->setApplication(app);
 
+	engine::Ref<engine::Text> txt = new engine::Text();
+	
 	//load and initialize font
 	const char *fontfilename = "../fonts/comic.ttf";
-	graphicsSystem->initText(fontfilename);
-	
+	txt->initText(fontfilename);
+	//setting the fontface
+	graphicsSystem->setText(txt);
+
 	//sound stuff
 	ISoundEngine *SoundEngine = createIrrKlangDevice();
 	//play3D is better and the audio can be looped
@@ -58,7 +57,6 @@ int main()
 		frameTimer.reset();
 
 		app->update(deltaTime);
-
 	}
 
 	printf("Closing...\n");
