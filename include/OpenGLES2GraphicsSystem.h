@@ -34,7 +34,7 @@ namespace engine
 		//virtual void drawPNG(Shader* shader, GLuint texture);
 		//text drawing here ---> application
 		virtual void drawText(Shader* shader, const char *text, float x, float y, float sx, float sy, float r, float g, float b);
-		virtual void drawTexture(float textCords[], float vertices[], int numVertices, const std::string filename, int width, int height);
+		virtual void drawTexture(Shader* shader, float textCords[], float vertices[], int numVertices, const std::string filename, int width, int height);
 		//virtual void setTexture(PNGFile* png);
 
 		virtual void swapBuffers();

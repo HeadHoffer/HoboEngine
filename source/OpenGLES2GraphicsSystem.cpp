@@ -114,10 +114,13 @@ namespace engine
 	{
 		glViewport(0, 0, m_window->getWidth(), m_window->getHeight());
 		glClearColor(red, green, blue, 0);
-		glClear(GL_COLOR_BUFFER_BIT);
-	
+
 		glEnable(GL_BLEND);
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
+		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+	
+
 	}
 
 	void OpenGLES2GraphicsSystem::drawTriangle(Shader* shader, Texture* texture, float textCords[], float vertices[], int numVertices)
@@ -131,18 +134,20 @@ namespace engine
 		glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 0, textCords);
 		glEnableVertexAttribArray(1);
 		
+		GLuint texture1 = texture->getTextureID();
+		
 		//Bind texture
 		glActiveTexture(GL_TEXTURE0);
-		glBindTexture(GL_TEXTURE_2D, texture->getTextureID());
+		glBindTexture(GL_TEXTURE_2D, texture1);
 		
 		//Set the sampler texture unit to 0
 		glUniform1i(shader->getUniformLocation("texture"), 0);
 		glDrawArrays(GL_TRIANGLES, 0, numVertices);
 	}
 
-	void OpenGLES2GraphicsSystem::drawTexture(float textCords[], float vertices[], int numVertices, const std::string filename, int width, int height)
+	void OpenGLES2GraphicsSystem::drawTexture(Shader* shader, float textCords[], float vertices[], int numVertices, const std::string filename, int width, int height)
 	{
-		//shader->UseShader();
+		shader->UseShader();
 
 		//header for testing if it is a png
 		png_byte header[8];
@@ -213,7 +218,7 @@ namespace engine
 		png_uint_32 twidth, theight;
 
 		// get info about png
-		png_get_IHDR(png_ptr, info_ptr, &twidth, &theight, &bit_depth, &color_type,	NULL, NULL, NULL);
+		png_get_IHDR(png_ptr, info_ptr, &twidth, &theight, &bit_depth, &color_type, NULL, NULL, NULL);
 		//update width and height based on png info
 		width = twidth;
 		height = theight;
@@ -236,7 +241,7 @@ namespace engine
 
 		//row_pointers is for pointing to image_data for reading the png with libpng
 		png_bytep *row_pointers = new png_bytep[height];
-		if (!row_pointers) 
+		if (!row_pointers)
 		{
 			//clean up memory and close stuff
 			png_destroy_read_struct(&png_ptr, &info_ptr, &end_info);
@@ -266,9 +271,9 @@ namespace engine
 		//Bind texture
 		glActiveTexture(GL_TEXTURE0);
 		glBindTexture(GL_TEXTURE_2D, texture);
-		
+
 		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, (GLvoid*)image_data);
-		
+
 		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 		//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
@@ -403,6 +408,7 @@ namespace engine
 			//draw the character on the screen
 			glBufferData(GL_ARRAY_BUFFER, sizeof box, box, GL_DYNAMIC_DRAW);
 			glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
+			
 			//advance the cursor to the start of the next character
 			x += (g->advance.x >> 6) * sx;
 			y += (g->advance.y >> 6) * sy;
