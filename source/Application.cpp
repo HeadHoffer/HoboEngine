@@ -4,6 +4,8 @@
 #include <stdio.h>
 #include <math.h>
 #include <PNGFile.h>
+#include <Input.h>
+
 
 namespace engine
 {
@@ -126,8 +128,8 @@ namespace engine
 
 	void Application::render(Window* window, GraphicsSystem* graphicsSystem)
 	{ 
-		float sx = 2.0 / window->getWidth();
-		float sy = 2.0 / window->getHeight();	
+		float sx = 2.0f / window->getWidth();
+		float sy = 2.0f / window->getHeight();	
 
 		//printf("%s\n", __FUNCTION__);
 		
@@ -211,5 +213,8 @@ namespace engine
 		graphicsSystem->drawText(m_shader[2], "remove winston", -0.5, -0.5, sx, sy, 0, 1, 0);
 
 		graphicsSystem->swapBuffers();	
+		
+		
+		
 	}
 }

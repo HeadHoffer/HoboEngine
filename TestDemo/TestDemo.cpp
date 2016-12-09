@@ -7,10 +7,12 @@
 #include <ElapsedTimer.h>
 #include <Input.h>
 #include <PNGFile.h>
+#include <Windows.h>
 
 #include <irrKlang\irrKlang.h>
 
-int _tmain(int argc, _TCHAR* argv[])
+
+int main()
 {
 	using namespace irrklang;
 
@@ -50,6 +52,10 @@ int _tmain(int argc, _TCHAR* argv[])
 
 	engine::Input* input = new engine::Input();
 
+	
+	
+
+
 
 	while (window->updateMessages())
 	{
@@ -57,7 +63,10 @@ int _tmain(int argc, _TCHAR* argv[])
 		frameTimer.reset();
 
 		app->update(deltaTime);
-
+		if (input->isKeyPressed(engine::KeyCodes::KEY_F))
+		{
+			
+		}
 	}
 
 	printf("Closing...\n");

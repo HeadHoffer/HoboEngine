@@ -1,55 +1,61 @@
 #include <Win32Window.h>
 #include <Application.h>
-
+#include <Input.h>
 namespace engine
 {
-	bool    keys[256];
+
+
+	/*bool    keys[256];
 	int mouseX;
 	int mouseY;
 	bool leftMouseDown;
-	bool rightMouseDown;
-	LRESULT WINAPI WindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
+	bool rightMouseDown;*/
+LRESULT WINAPI WindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
+
+	
+
+
 	{
 		LRESULT lRet = 1;
 
 		switch (uMsg)
 		{
-		case WM_LBUTTONDOWN:
-		{
-			leftMouseDown = true;
-		}
-		break;
-		case WM_RBUTTONDOWN:
-		{
-			rightMouseDown = true;
-		}
-		case WM_LBUTTONUP:
-		{
-			leftMouseDown = false;
-		}
-		break;
-		case WM_RBUTTONUP:
-		{
-			rightMouseDown = false;
-		}
-		break;
-		case WM_MOUSEMOVE:
-		{
-			//mouseX = GET_X_LPARAM(lParam);
-		//	mouseY = GET_Y_LPARAM(lParam);
-		}
-			break;
-		case WM_KEYDOWN:							// Is A Key Being Held Down?
-		{
-			keys[wParam] = TRUE;					// If So, Mark It As TRUE
-			return 0;								// Jump Back
-		}
+		//case WM_LBUTTONDOWN:
+		//{
+		//	leftMouseDown = true;
+		//}
+		//break;
+		//case WM_RBUTTONDOWN:
+		//{
+		//	rightMouseDown = true;
+		//}
+		//case WM_LBUTTONUP:
+		//{
+		//	leftMouseDown = false;
+		//}
+		//break;
+		//case WM_RBUTTONUP:
+		//{
+		//	rightMouseDown = false;
+		//}
+		//break;
+		//case WM_MOUSEMOVE:
+		//{
+		//	//mouseX = GET_X_LPARAM(lParam);
+		////	mouseY = GET_Y_LPARAM(lParam);
+		//}
+		//	break;
+		//case WM_KEYDOWN:							// Is A Key Being Held Down?
+		//{
+		//	keys[wParam] = TRUE;					// If So, Mark It As TRUE
+		//	return 0;								// Jump Back
+		//}
 
-		case WM_KEYUP:								// Has A Key Been Released?
-		{
-			keys[wParam] = FALSE;					// If So, Mark It As FALSE
-			return 0;								// Jump Back
-		}
+		//case WM_KEYUP:								// Has A Key Been Released?
+		//{
+		//	keys[wParam] = FALSE;					// If So, Mark It As FALSE
+		//	return 0;								// Jump Back
+		//}
 
 		case WM_PAINT:
 		{
@@ -160,7 +166,7 @@ namespace engine
 
 	bool Win32Window::updateMessages()
 	{
-		memset(keys, false, 256);
+		//memset(keys, false, 256);
 		MSG msg = { 0 };
 		int gotMsg = (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE) != 0);
 		if (gotMsg)
@@ -184,4 +190,6 @@ namespace engine
 
 		return m_active;
 	}
+	
 }
+
