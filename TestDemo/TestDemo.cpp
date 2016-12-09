@@ -52,21 +52,13 @@ int main()
 
 	engine::Input* input = new engine::Input();
 
-	
-	
-
-
-
 	while (window->updateMessages())
 	{
 		float deltaTime = frameTimer.getTime();
 		frameTimer.reset();
 
 		app->update(deltaTime);
-		if (input->isKeyPressed(engine::KeyCodes::KEY_F))
-		{
-			
-		}
+
 	}
 
 	printf("Closing...\n");

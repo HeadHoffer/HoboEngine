@@ -120,6 +120,13 @@ namespace engine
 	class Input
 	{
 	public:
+		bool clicks[3];
+		bool prevClicks[3];
+		int mouseXValue = 0;
+		int mouseYValue = 0;
+		int mouseWheelDelta = 0;
+		bool keysT[0xff];
+		bool prevKeys[0xff];
 		/**
 		* Returns key button state. Returns 0 if button is not pressed returns 1. if button is pressed down.
 		*/

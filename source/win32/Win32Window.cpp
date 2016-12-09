@@ -4,62 +4,64 @@
 namespace engine
 {
 
-
-	/*bool    keys[256];
+	bool    keys[256];
 	int mouseX;
 	int mouseY;
 	bool leftMouseDown;
-	bool rightMouseDown;*/
+	bool rightMouseDown;
 LRESULT WINAPI WindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
-
-	
-
 
 	{
 		LRESULT lRet = 1;
 
 		switch (uMsg)
 		{
-		//case WM_LBUTTONDOWN:
-		//{
-		//	leftMouseDown = true;
-		//}
-		//break;
-		//case WM_RBUTTONDOWN:
-		//{
-		//	rightMouseDown = true;
-		//}
-		//case WM_LBUTTONUP:
-		//{
-		//	leftMouseDown = false;
-		//}
-		//break;
-		//case WM_RBUTTONUP:
-		//{
-		//	rightMouseDown = false;
-		//}
-		//break;
-		//case WM_MOUSEMOVE:
-		//{
-		//	//mouseX = GET_X_LPARAM(lParam);
-		////	mouseY = GET_Y_LPARAM(lParam);
-		//}
-		//	break;
-		//case WM_KEYDOWN:							// Is A Key Being Held Down?
-		//{
-		//	keys[wParam] = TRUE;					// If So, Mark It As TRUE
-		//	return 0;								// Jump Back
-		//}
+		case WM_LBUTTONDOWN:
+		{
+			leftMouseDown = true;
+			printf(" leftclick ");
+		}
+		break;
+		case WM_RBUTTONDOWN:
+		{
+			rightMouseDown = true;
+		}
+		case WM_LBUTTONUP:
+		{
+			leftMouseDown = false;
+		}
+		break;
+		case WM_RBUTTONUP:
+		{
+			rightMouseDown = false;
+		}
+		break;
+		case WM_MOUSEMOVE:
+		{
+			//mouseX = GET_X_LPARAM(lParam);       //fix these
+		   //	mouseY = GET_Y_LPARAM(lParam);
+		}
+			break;
+		case WM_KEYDOWN:							// Is A Key Being Held Down?
+		{
+			keys[wParam] = TRUE;					// If So, Mark It As TRUE
 
-		//case WM_KEYUP:								// Has A Key Been Released?
-		//{
-		//	keys[wParam] = FALSE;					// If So, Mark It As FALSE
-		//	return 0;								// Jump Back
-		//}
+			if (keys['f'])
+			{
+				printf(" Pay Respects ");
+			}
+
+			return 0;								// Jump Back
+		}
+
+		case WM_KEYUP:								// Has A Key Been Released?
+		{
+			keys[wParam] = FALSE;					// If So, Mark It As FALSE
+			return 0;								// Jump Back
+		}
 
 		case WM_PAINT:
 		{
-
 
 			Win32Window* window = (Win32Window*)(LONG_PTR)GetWindowLongPtr(hWnd, GWL_USERDATA);
 			

@@ -1,6 +1,7 @@
 #include "Input.h"
 #include <stdio.h>
 #include <Windows.h>
+#include <Win32Window.h>
 
 namespace engine
 {
@@ -36,6 +37,8 @@ namespace engine
 
 	}
 
+	
+
 	int Input::isMouseButtonPressed(MouseButtons button)
 	{
 		// Now pressed && prev not pressed
@@ -65,12 +68,15 @@ namespace engine
 	int Input::isKeyPressed(KeyCodes keyCode)
 	{
 		// Now pressed && prev not pressed
+		
 		return keys[keyCode] && !prevKeys[keyCode];
+
 	}
 
 	int Input::isKeyReleased(KeyCodes keyCode)
 	{
 		// Prev pressed && now not pressed
+		
 		return prevKeys[keyCode] && !keys[keyCode];
 	}
 	/**
