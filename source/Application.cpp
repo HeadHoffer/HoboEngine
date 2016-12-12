@@ -1,6 +1,7 @@
 #include <Application.h>
 #include <GraphicsSystem.h>
 #include <Window.h>
+#include <Win32Window.h>
 #include <stdio.h>
 #include <math.h>
 #include <PNGFile.h>

@@ -3,8 +3,8 @@
 #include <Input.h>
 namespace engine
 {
-
-	bool    keys[256];
+	bool w;
+	bool keys[256];
 	int mouseX;
 	int mouseY;
 	bool leftMouseDown;
@@ -44,20 +44,40 @@ LRESULT WINAPI WindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 			break;
 		case WM_KEYDOWN:							// Is A Key Being Held Down?
 		{
+
+
 			keys[wParam] = TRUE;					// If So, Mark It As TRUE
 
-			if (keys['f'])
-			{
+			if (keys[0X46])	//F						// use virtual-key Codes
+			{										
 				printf(" Pay Respects ");
 			}
-
+			if (keys[0X57]) //W
+			{
+				printf(" W ");
+				w = true;
+			}
+			if (keys[0x41]) //A
+			{
+				printf(" A ");
+			}
+			if (keys[0X53]) //S
+			{
+				printf(" S ");
+			}
+			if (keys[0X44]) //D
+			{
+				printf(" D ");
+			}
 			return 0;								// Jump Back
 		}
 
 		case WM_KEYUP:								// Has A Key Been Released?
 		{
 			keys[wParam] = FALSE;					// If So, Mark It As FALSE
-			return 0;								// Jump Back
+			return 0;
+			
+			// Jump Back
 		}
 
 		case WM_PAINT:
@@ -168,7 +188,7 @@ LRESULT WINAPI WindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 
 	bool Win32Window::updateMessages()
 	{
-		//memset(keys, false, 256);
+		memset(keys, false, 256);
 		MSG msg = { 0 };
 		int gotMsg = (PeekMessage(&msg, NULL, 0, 0, PM_REMOVE) != 0);
 		if (gotMsg)

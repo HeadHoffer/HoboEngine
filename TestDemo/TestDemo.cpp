@@ -50,6 +50,10 @@ int _tmain(int argc, char *argv[])
 	frameTimer.reset();
 
 	engine::Input* input = new engine::Input();
+	
+	/*if (engine::KeyCodes::KEY_NUMPAD1);
+	printf("moi");*/
+	
 
 	while (window->updateMessages())
 	{
@@ -57,8 +61,9 @@ int _tmain(int argc, char *argv[])
 		frameTimer.reset();
 
 		app->update(deltaTime);
-	}
 
+		
+	}
 	printf("Closing...\n");
 
 	return 0;
